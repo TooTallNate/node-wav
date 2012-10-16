@@ -1,0 +1,22 @@
+{
+  "name": "wave",
+  "description": "",
+  "version": "0.0.0",
+  "author": "Nathan Rajlich <nathan@tootallnate.net>",
+  "repository": { "type": "git", "url": "git://github.com/TooTallNate/node-wave.git" },
+  "keywords": [
+  ],
+  "dependencies": {
+    "debug": "*"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "main": "./index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "engines": {
+    "node": "*"
+  }
+}
