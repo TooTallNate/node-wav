@@ -23,6 +23,7 @@ module.exports = Parser;
 
 function Parser (opts) {
   Transform.call(this, opts);
+  this.bytesProcessed = 0;
   this._left = 0;
   this._buffers = [];
   this._buffered = 0;
@@ -61,7 +62,7 @@ Parser.prototype.passthrough = function (n, cb) {
  */
 
 Parser.prototype._transform = function (chunk, write, done) {
-  debug('_transform: (chunk.length: %d)', chunk.length);
+  debug('_transform: (chunk.length: %d) (processed: %d)', chunk.length, this.bytesProcessed);
   if (this.done) {
     debug('_transform called, but stream is "done"!');
     return done();
@@ -91,6 +92,8 @@ Parser.prototype._onData = function (chunk, write) {
     // passthrough
     write(chunk);
   }
+
+  this.bytesProcessed += chunk.length;
 
   if (0 === this._left) {
     // done with this "piece", invoke the callback
