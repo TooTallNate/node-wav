@@ -18,3 +18,10 @@ exports.Reader = require('./lib/reader');
  */
 
 exports.Writer = require('./lib/writer');
+
+/**
+ * A subclass of `Writer` that automatically takes care of writing the "header"
+ * event at the end of the stream to the beginning of the output file.
+ */
+
+exports.FileWriter = require('./lib/file-writer');
