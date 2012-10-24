@@ -3,11 +3,14 @@
   "description": "`Reader` and `Writer` streams for Microsoft WAVE audio files",
   "version": "0.0.0",
   "author": "Nathan Rajlich <nathan@tootallnate.net>",
-  "repository": { "type": "git", "url": "git://github.com/TooTallNate/node-wave.git" },
-  "keywords": [
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TooTallNate/node-wave.git"
+  },
+  "keywords": [],
   "dependencies": {
-    "debug": "*"
+    "debug": "*",
+    "readable-stream": "~0.0.3"
   },
   "devDependencies": {
     "mocha": "*"
