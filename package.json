@@ -13,7 +13,8 @@
     "readable-stream": "~0.0.3"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "speaker": "*"
   },
   "main": "./index.js",
   "scripts": {
