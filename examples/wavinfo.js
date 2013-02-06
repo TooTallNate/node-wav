@@ -1,6 +1,10 @@
 
 /**
- * Pipe a WAVE file to stdin, or specify the 
+ * Pipe a WAVE file to stdin, or specify the filename as the first argument,
+ * and information about the wave file will be printed out.
+ *
+ * Mimics the `wavinfo` program:
+ *   http://www.morphet.org.uk/comp/wavtools.html
  */
 
 var fs = require('fs');
