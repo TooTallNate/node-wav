@@ -10,6 +10,7 @@
   "keywords": [],
   "dependencies": {
     "debug": "*",
+    "stream-parser": "*",
     "readable-stream": "~0.0.3"
   },
   "devDependencies": {
@@ -18,9 +19,9 @@
   },
   "main": "./index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --reporter spec"
   },
   "engines": {
-    "node": "*"
+    "node": ">= v0.8.x"
   }
 }
