@@ -44,11 +44,38 @@ file.pipe(reader);
 API
 ---
 
-### Reader class
+  - [Reader()](#reader)
+  - [Writer()](#writer)
+  - [FileWriter()](#filewriter)
 
+## Reader()
 
-### Writer class
+The `Reader` class accepts a WAV audio file written to it and outputs the raw
+audio data with the WAV header stripped (most of the time, PCM audio data will
+be output, depending on the `audioFormat` property).
 
+A `"format"` event gets emitted after the WAV header has been parsed.
 
-### FileWriter class
+## Writer()
 
+The `Writer` class accepts raw audio data written to it (only PCM audio data is
+currently supported), and outputs a WAV file with a valid WAVE header at the
+beginning specifying the formatting information of the audio stream.
+
+Note that there's an interesting problem, because the WAVE header also
+specifies the total byte length of the audio data in the file, and there's no
+way that we can know this ahead of time. Therefore the WAVE header will contain
+a byte-length if `0` initially, which most WAVE decoders will know means to
+just read until `EOF`.
+
+Optionally, if you are in a situation where you can seek back to the beginning
+of the destination of the WAVE file (like writing to a regular file, for
+example), then you may listen for the `"header"` event which will be emitted
+_after_ all the data has been written, and you can go back and rewrite the new
+header with proper audio byte length into the beginning of the destination
+(though if your destination _is_ a regular file, you should use the the
+`FileWriter` class instead).
+
+## FileWriter()
+
+The `FileWriter` class.

@@ -1,5 +1,13 @@
 
 /**
+ * References:
+ *  - http://www.sonicspot.com/guide/wavefiles.html
+ *  - https://ccrma.stanford.edu/courses/422/projects/WaveFormat/
+ *  - http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/WAVE/WAVE.html
+ *  - http://www.blitter.com/~russtopia/MIDI/~jglatt/tech/wave.htm
+ */
+
+/**
  * The `Reader` class accepts a WAVE audio file, emits a "format" event, and
  * outputs the raw "data" from the WAVE file (usually raw PCM data, but if the
  * WAVE file uses compression then the compressed data will be output, you are
