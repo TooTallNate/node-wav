@@ -14,7 +14,8 @@
     "stream-parser": "~0.3.0"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "dev-null": "*"
   },
   "main": "./index.js",
   "scripts": {
