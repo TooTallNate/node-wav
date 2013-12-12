@@ -1,3 +1,9 @@
+
+0.1.1 / 2013-12-12
+==================
+
+  * Fix package.json repository URL so npm link isn't broken (@cbebry)
+
 0.1.0 / 2013-03-07
 ==================
 
