@@ -5,7 +5,7 @@
   "author": "Nathan Rajlich <nathan@tootallnate.net>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/TooTallNate/node-wave.git"
+    "url": "git://github.com/TooTallNate/node-wav.git"
   },
   "keywords": [],
   "dependencies": {
