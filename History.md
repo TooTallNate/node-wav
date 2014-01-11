@@ -1,4 +1,11 @@
 
+0.1.2 / 2014-01-11
+==================
+
+  * package: update `readable-stream` dep to v1.1.10
+  * travis: test node v0.10 and v0.11
+  * Writer: bypassed `stream-parser` to avoid assertion error (#1, #5)
+
 0.1.1 / 2013-12-12
 ==================
 
