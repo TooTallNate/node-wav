@@ -10,8 +10,7 @@
   "keywords": [],
   "dependencies": {
     "debug": "*",
-    "stream-parser": "*",
-    "readable-stream": "~0.0.3"
+    "readable-stream": "~1.1.10"
   },
   "devDependencies": {
     "mocha": "*"
