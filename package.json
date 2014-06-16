@@ -19,8 +19,5 @@
   "main": "./index.js",
   "scripts": {
     "test": "mocha --reporter spec"
-  },
-  "engines": {
-    "node": ">= v0.8.x"
   }
 }
