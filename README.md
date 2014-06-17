@@ -49,7 +49,7 @@ API
   - [Writer()](#writer)
   - [FileWriter()](#filewriter)
 
-## Reader()
+### Reader()
 
 The `Reader` class accepts a WAV audio file written to it and outputs the raw
 audio data with the WAV header stripped (most of the time, PCM audio data will
@@ -57,7 +57,7 @@ be output, depending on the `audioFormat` property).
 
 A `"format"` event gets emitted after the WAV header has been parsed.
 
-## Writer()
+### Writer()
 
 The `Writer` class accepts raw audio data written to it (only PCM audio data is
 currently supported), and outputs a WAV file with a valid WAVE header at the
@@ -77,6 +77,6 @@ header with proper audio byte length into the beginning of the destination
 (though if your destination _is_ a regular file, you should use the the
 `FileWriter` class instead).
 
-## FileWriter()
+### FileWriter()
 
 The `FileWriter` class.
