@@ -1,6 +1,7 @@
 
 /**
  * References:
+ *  - http://tools.ietf.org/html/rfc2361
  *  - http://www.sonicspot.com/guide/wavefiles.html
  *  - https://ccrma.stanford.edu/courses/422/projects/WaveFormat/
  *  - http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/WAVE/WAVE.html
