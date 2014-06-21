@@ -79,9 +79,6 @@ describe('Reader', function () {
           assert.equal(true, format.float);
           done();
         });
-        reader.on('chunk', function (chunk) {
-          console.log(chunk);
-        });
         fs.createReadStream(fixture).pipe(reader).resume();
       });
 
