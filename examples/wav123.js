@@ -1,7 +1,7 @@
 
 /**
- * Plays the WAVE audio file from stdin out the of the computer's speakers.
- * Only PCM format audio WAVE (codec 1) are supported.
+ * Plays the WAVE audio file from stdin out of the computer's speakers
+ * via `node-speaker`.
  */
 
 var Reader = require('../').Reader;
