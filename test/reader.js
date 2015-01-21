@@ -12,6 +12,26 @@ describe('Reader', function () {
 
   describe('RIFF - Little-endian', function () {
 
+    describe('classical-with-info-list.wav', function() {
+      var fixture = path.resolve(__dirname, 'fixtures', 'classical-with-info-list.wav');
+
+      it('should emit a "format" event', function (done) {
+        var reader = new Reader();
+        reader.on('format', function (format) {
+          assert.equal(2, format.channels);
+          assert.equal(16, format.bitDepth);
+          done();
+        });
+        fs.createReadStream(fixture).pipe(reader).resume();
+      });
+
+      it('should emit an "end" event', function (done) {
+        var reader = new Reader();
+        reader.on('end', done);
+        fs.createReadStream(fixture).pipe(reader).resume();
+      });
+    });
+
     describe('1up.wav', function () {
       var fixture = path.resolve(__dirname, 'fixtures', '1up.wav');
 
