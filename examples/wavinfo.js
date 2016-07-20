@@ -24,24 +24,23 @@ if (filename) {
 
 
 reader.on('cart', function (format) {
-	console.log(JSON.stringify(format))
+  console.log(JSON.stringify(format))
 })
 
 reader.on('bext', function (format) {
-	console.log(JSON.stringify(format))
+  console.log(JSON.stringify(format))
 })
 
 reader.on('format', function (format) {
-	console.log(JSON.stringify(format))
+  console.log(JSON.stringify(format))
 })
 
 reader.pipe(devnull());
 input.pipe(reader);
 
-
-// the "readable" event will always come *after* the "format" event, but by now
-// a few final properties will have been parsed like "subchunk2Size" that we want
-// to print out to simulate the wavinfo(1) command
+// whilst the "readable" event will always come *after* the "format" event, we must wait
+// until the "end" event is raised to ensure that all chunks have been identified and parsed
+// for properties that we want to print out to simulate the wavinfo(1) command
 reader.once('end', function () {
   console.log('WaveHeader Size:\t%d',  12);
   console.log('ChunkHeader Size:\t%d', 8);
@@ -63,4 +62,3 @@ reader.once('end', function () {
   console.log('wavDataSize: %d',      reader.subchunk2Size);
   console.log();
 });
-

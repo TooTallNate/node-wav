@@ -4,7 +4,6 @@ node-wav
 [![Build Status](https://secure.travis-ci.org/TooTallNate/node-wav.svg)](http://travis-ci.org/TooTallNate/node-wav)
 
 This module offers streams to help work with Microsoft WAVE files.
-Test
 
 Installation
 ------------
@@ -50,14 +49,6 @@ API
   - [FileWriter()](#filewriter)
 
 ### Reader()
-
-The `Reader` class accepts a WAV audio file written to it and outputs the raw
-audio data with the WAV header stripped (most of the time, PCM audio data will
-be output, depending on the `audioFormat` property).
-
-A `"format"` event gets emitted after the WAV header has been parsed.
-
-### Writer()
 ## EXPERIMENTAL
 A `"cart"` event is emitted if a ["CartChunk"](http://www.cartchunk.org/) subchunk is detected
 
@@ -66,6 +57,14 @@ subchunk is detected
 
 __NOTE__: At the moment, this will only be for subchunks __before__ the `"data"` chunk. This isn't always the case - some applications
 will write these chunks at the end of the file! 
+
+The `Reader` class accepts a WAV audio file written to it and outputs the raw
+audio data with the WAV header stripped (most of the time, PCM audio data will
+be output, depending on the `audioFormat` property).
+
+A `"format"` event gets emitted after the WAV header has been parsed.
+
+### Writer()
 
 The `Writer` class accepts raw audio data written to it (only PCM audio data is
 currently supported), and outputs a WAV file with a valid WAVE header at the
