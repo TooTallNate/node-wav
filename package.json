@@ -14,10 +14,11 @@
     "stream-parser": "~0.3.0"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "semistandard": "^8.0.0"
   },
   "main": "./index.js",
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "semistandard && mocha --reporter spec"
   }
 }
