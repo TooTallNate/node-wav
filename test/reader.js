@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 
 /**
  * Module dependencies.
@@ -9,9 +10,7 @@ var assert = require('assert');
 var Reader = require('../').Reader;
 
 describe('Reader', function () {
-
   describe('RIFF - Little-endian', function () {
-
     describe('1up.wav', function () {
       var fixture = path.resolve(__dirname, 'fixtures', '1up.wav');
 
@@ -33,7 +32,6 @@ describe('Reader', function () {
         reader.on('end', done);
         fs.createReadStream(fixture).pipe(reader).resume();
       });
-
     });
 
     describe('gameover.wav', function () {
@@ -62,7 +60,6 @@ describe('Reader', function () {
         reader.on('end', done);
         fs.createReadStream(fixture).pipe(reader).resume();
       });
-
     });
 
     describe('M1F1-float32-AFsp.wav', function () {
@@ -87,7 +84,6 @@ describe('Reader', function () {
         reader.on('end', done);
         fs.createReadStream(fixture).pipe(reader).resume();
       });
-
     });
 
     describe('M1F1-float64-AFsp.wav', function () {
@@ -112,14 +108,10 @@ describe('Reader', function () {
         reader.on('end', done);
         fs.createReadStream(fixture).pipe(reader).resume();
       });
-
     });
-
-
   });
 
   describe('RIFX - Big-endian', function () {
-
     describe('gameover-rifx.wav', function () {
       var fixture = path.resolve(__dirname, 'fixtures', 'gameover-rifx.wav');
 
@@ -146,9 +138,6 @@ describe('Reader', function () {
         reader.on('end', done);
         fs.createReadStream(fixture).pipe(reader).resume();
       });
-
     });
-
   });
-
 });
