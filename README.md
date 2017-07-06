@@ -82,7 +82,7 @@ Default options:
 ```JSON
 {
   "channels": 2,
-  "sampleRate": 44100
+  "sampleRate": 44100,
   "bitDepth": 16
 }
 ```  
