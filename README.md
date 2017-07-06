@@ -119,6 +119,3 @@ setTimeout(function() {
   micInstance.stop();
 }, 5000);
 ```
-
-
-
