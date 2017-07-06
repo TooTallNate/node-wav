@@ -46,8 +46,8 @@ API
 ---
 
   - [Reader()](#reader)
-  - [Writer()](#writer)
-  - [FileWriter()](#filewriter)
+  - [Writer()](#writeroptions)
+  - [FileWriter()](#filewriterpath-options)
 
 ### Reader()
 
@@ -57,7 +57,7 @@ be output, depending on the `audioFormat` property).
 
 A `"format"` event gets emitted after the WAV header has been parsed.
 
-### Writer()
+### Writer(options)
 
 The `Writer` class accepts raw audio data written to it (only PCM audio data is
 currently supported), and outputs a WAV file with a valid WAVE header at the
@@ -77,6 +77,48 @@ header with proper audio byte length into the beginning of the destination
 (though if your destination _is_ a regular file, you should use the the
 `FileWriter` class instead).
 
-### FileWriter()
+Default options: 
 
-The `FileWriter` class.
+```JSON
+{
+  "channels": 2,
+  "sampleRate": 44100
+  "bitDepth": 16
+}
+```  
+
+
+### FileWriter(path, options)
+
+The `FileWriter` class is, essentially, a combination of `fs.createWriteStream()` and the above `Writer()` class, except it automatically corrects the header after the file is written. Options are passed to both `Writer()` and `fs.createWriteStream()`.
+
+Example usage with `mic`:
+
+```js
+var FileWriter = require('wav').FileWriter;
+var mic = require('mic'); // requires arecord or sox, see https://www.npmjs.com/package/mic
+
+var micInstance = mic({
+  rate: '16000',
+  channels: '1',
+  debug: true
+});
+
+var micInputStream = micInstance.getAudioStream();
+
+var outputFileStream = new FileWriter('./test.wav', {
+  sampleRate: 16000,
+  channels: 1
+});
+
+micInputStream.pipe(outputFileStream);
+
+micInstance.start();
+
+setTimeout(function() {
+  micInstance.stop();
+}, 5000);
+```
+
+
+
