@@ -10,7 +10,7 @@
 var fs = require('fs');
 var wav = require('../');
 var filename = process.argv[2];
-
+var devnull = require('dev-null')
 var input;
 var reader = new wav.Reader();
 
@@ -22,13 +22,27 @@ if (filename) {
   input = process.stdin;
 }
 
+
+reader.on('cart', function (format) {
+  console.log(JSON.stringify(format))
+})
+
+reader.on('bext', function (format) {
+  console.log(JSON.stringify(format))
+})
+
+reader.on('format', function (format) {
+  console.log(JSON.stringify(format))
+})
+
+reader.pipe(devnull());
 input.pipe(reader);
 
-// the "readable" event will always come *after* the "format" event, but by now
-// a few final properties will have been parsed like "subchunk2Size" that we want
-// to print out to simulate the wavinfo(1) command
-reader.once('readable', function () {
-  console.log('WaveHeader Size:\t%d', 12);
+// whilst the "readable" event will always come *after* the "format" event, we must wait
+// until the "end" event is raised to ensure that all chunks have been identified and parsed
+// for properties that we want to print out to simulate the wavinfo(1) command
+reader.once('end', function () {
+  console.log('WaveHeader Size:\t%d',  12);
   console.log('ChunkHeader Size:\t%d', 8);
   console.log('FormatChunk Size:\t%d', reader.subchunk1Size);
   console.log('RIFF ID:\t%s', reader.riffId);

@@ -5,7 +5,6 @@ node-wav
 
 This module offers streams to help work with Microsoft WAVE files.
 
-
 Installation
 ------------
 
@@ -50,6 +49,14 @@ API
   - [FileWriter()](#filewriterpath-options)
 
 ### Reader()
+## EXPERIMENTAL
+A `"cart"` event is emitted if a ["CartChunk"](http://www.cartchunk.org/) subchunk is detected
+
+A `"bext"` event is emitted if a ["Broadcast Wave File"](http://en.wikipedia.org/wiki/Broadcast_Wave_Format) 
+subchunk is detected
+
+__NOTE__: At the moment, this will only be for subchunks __before__ the `"data"` chunk. This isn't always the case - some applications
+will write these chunks at the end of the file! 
 
 The `Reader` class accepts a WAV audio file written to it and outputs the raw
 audio data with the WAV header stripped (most of the time, PCM audio data will
