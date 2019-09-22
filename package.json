@@ -6,6 +6,7 @@
   "author": "Nathan Rajlich <nathan@tootallnate.net>",
   "repository": "TooTallNate/node-wav",
   "dependencies": {
+    "@types/node": "*",
     "buffer-alloc": "^1.1.0",
     "buffer-from": "^1.0.0",
     "debug": "^2.2.0",
