@@ -15,7 +15,7 @@
  * responsible for uncompressing in that case if necessary).
  */
 
-exports.Reader = require('./lib/reader');
+exports.Reader = require('./lib/reader.js');
 
 /**
  * The `Writer` class outputs a valid WAVE file from the audio data written to
@@ -26,7 +26,7 @@ exports.Reader = require('./lib/reader');
  * written.
  */
 
-exports.Writer = require('./lib/writer');
+exports.Writer = require('./lib/writer.js');
 
 /**
  * The `FileWriter` is a subclass of `Writer` that automatically takes care of
@@ -34,4 +34,4 @@ exports.Writer = require('./lib/writer');
  * output file.
  */
 
-exports.FileWriter = require('./lib/file-writer');
+exports.FileWriter = require('./lib/file-writer.js');
