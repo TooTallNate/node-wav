@@ -7,7 +7,7 @@
 var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
-var Reader = require('../').Reader;
+var Reader = require('../lib/reader.js');
 
 describe('Reader', function () {
   describe('RIFF - Little-endian', function () {
